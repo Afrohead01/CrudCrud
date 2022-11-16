@@ -56,11 +56,17 @@
                 const parentNode = document.getElementById('NumberOfUsers')
                 const childNode = `<li id=${User._id}>Name- ${User.Name}, Email- ${User.EmailId}, PhoneNumber- ${User.PhoneNumber}, Address- ${User.Address}
                     <button onclick=deleteUser('${User._id}')>Delete User</button>
-                    <button onclick=editUser('${User._id}','${User.EmailId}')>Edit</button></li>`
+                    <button onclick=editUserDetails('${User.EmailId}','${User._id}',)>Edit</button></li>`
                 parentNode.innerHTML = parentNode.innerHTML + childNode
             }
            
-             
+             function editUserDetails(EmailID,UserId){
+
+                document.getElementById('email').value = EmailID;
+
+
+                deleteUser(UserId)
+             }
 
             // deleteUser('abc@gmail.com')
 
