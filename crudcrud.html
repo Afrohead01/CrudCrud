@@ -42,15 +42,15 @@
                 // DisplayOnScreen(obj)
             }
             window.addEventListener("DOMContentLoaded", () => {
-                const localStorageObj = localStorage;
-                const localstoragekeys  = Object.keys(localStorageObj)
-
-                for(var i =0; i< localstoragekeys.length; i++){
-                    const key = localstoragekeys[i]
-                    const userDetailsString = localStorageObj[key];
-                    const userDetailsObj = JSON.parse(userDetailsString);
-                    DisplayOnScreen(userDetailsObj)
-                }
+                axios.get('https://crudcrud.com/api/12ff7799a3774ed8bbe93a6e20ab466c/Details')
+                .then((response)=>{
+                    console.log(response)
+                    for(i=0;i<response.data.length;i++)
+                    DisplayOnScreen(response.data[i])
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
             })
             function DisplayOnScreen(User){
                 const parentNode = document.getElementById('NumberOfUsers')
